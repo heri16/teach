@@ -55,6 +55,7 @@ class App extends Component {
         <div className="wrap" onClick={this.handleClick}>
           <input
             type="tel"
+            autoComplete="one-time-code"
             value=""
             ref={this.input}
             onChange={this.handleChange}
