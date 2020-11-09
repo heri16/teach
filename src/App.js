@@ -54,6 +54,7 @@ class App extends Component {
       <div className="App">
         <div className="wrap" onClick={this.handleClick}>
           <input
+            type="tel"
             value=""
             ref={this.input}
             onChange={this.handleChange}
