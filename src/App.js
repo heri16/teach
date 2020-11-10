@@ -20,7 +20,7 @@ const App = ({ codeLength = 6 }) => {
     }, [value]);
 
     const handleKeyUp = useCallback(e => {
-      if (e.key === "Backspace") {
+      if (e.key === "Backspace" || e.key === "Delete") {
         setValue(value.slice(0, value.length - 1));
       }
     }, [value]);
@@ -28,7 +28,7 @@ const App = ({ codeLength = 6 }) => {
     const handleChange = useCallback(e => {
       const newValue = e.target.value;
       if (value.length < CODE_LENGTH.length) {
-        setValue((value + newValue).slice(0, CODE_LENGTH.length));
+        setValue((value + newValue.trim()).slice(0, CODE_LENGTH.length));
       }
     }, [value]);
 
