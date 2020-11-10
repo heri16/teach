@@ -10,7 +10,15 @@ class App extends Component {
     focused: false,
   };
 
-  handleClick = () => {
+  handleClick = e => {
+    const { index } = e.target.dataset;
+    if (index) {
+      this.setState(state => {
+        return {
+          value: state.value.slice(0, index),
+        };
+      });
+    }
     this.input.current.focus();
   };
   handleFocus = () => {
@@ -44,7 +52,7 @@ class App extends Component {
     const { value, focused } = this.state;
 
     const values = value.split("");
-    
+
     const selectedIndex =
       values.length < CODE_LENGTH.length ? values.length : CODE_LENGTH.length - 1;
 
@@ -76,7 +84,7 @@ class App extends Component {
             const filled = values.length === CODE_LENGTH.length && index === CODE_LENGTH.length - 1;
 
             return (
-              <div className="display">
+              <div className="display" data-index={index} key={index}>
                 {values[index]}
                 {(selected || filled) && focused && <div className="shadows" />}
               </div>
