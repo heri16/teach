@@ -19,6 +19,9 @@
   text-align: center;
   background-color: transparent;
   outline: none;
+  -webkit-text-security: disc;
+  -moz-webkit-text-security: disc;
+  -moz-text-security: disc;
 }
 .display {
   border-right: 1px solid rgba(0, 0, 0, 0.2);
